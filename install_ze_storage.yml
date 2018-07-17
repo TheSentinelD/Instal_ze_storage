@@ -1,0 +1,11 @@
+﻿---
+- name: Instalace z lokálního storage
+  hosts: "{{ seznam_stanic }}"
+  
+  tasks:
+   - name: Nainstaluje stažený soubor
+     win_package:
+       product_id: "{{ id_produktu }}"
+       path: "{{ cesta_instalacniho_souboru }}"
+       state: present
+
