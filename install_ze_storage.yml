@@ -5,6 +5,9 @@
   tasks:
    - name: Nainstaluje soubor
      win_package:
+       ansibe_become: yes
+       ansible_become_user: "{{ superucet }}"
+       ansible_become_pass: "{{ superheslo }}"
        product_id: "{{ id_produktu }}"
        path: "{{ cesta_instalacniho_souboru }}"
        state: present
