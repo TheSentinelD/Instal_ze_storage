@@ -6,9 +6,13 @@
    - name: Nainstaluje soubor
      win_package:
        path: "{{ cesta_instalacniho_souboru }}"
-       ansible_become: yes
-       ansible_become_user: "{{ superucet }}"
-       ansible_become_pass: "{{ superheslo }}"
        product_id: "{{ id_produktu }}"
        state: present
+     vars: 
+       ansible_become: yes
+       ansible_become_method: runas
+       ansible_become_user: "{{ superucet }}"
+       ansible_become_pass: "{{ superheslo }}"
+       ansible_become_flags: logon_type=new_credentials logon_flags=netcredentials_only
+       
 
